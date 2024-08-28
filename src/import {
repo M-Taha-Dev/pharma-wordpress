@@ -1,0 +1,107 @@
+import {
+  Animator,
+  ScrollContainer,
+  ScrollPage,
+  batch,
+  Fade,
+  Move,
+  Sticky,
+} from "react-scroll-motion";
+import './index.css'; // Ensure you import your custom CSS
+import LandingPage from './Pages/LandingPage';
+
+const App = () => {
+  const FadeUp = batch(Fade(), Move(), Sticky());
+
+  return (
+    <div className='w-full h-screen '>
+      {/* Navbar with fixed positioning */}
+
+
+      <ScrollContainer  snap=''>
+        {/* Section 1 */}
+        <ScrollPage >
+          <div className="relatve w-full h-screen">
+            <Animator className='w-full h-screen' animation={FadeUp}>
+
+            <div className="absolute bg-black h-screen w-64">
+              
+            </div>
+              <LandingPage/>
+
+            </Animator>
+          </div>
+        </ScrollPage>
+        
+        {/* Section 2 */}
+        <ScrollPage>
+          <div className="relative w-screen h-screen">
+            <Animator className='w-full h-screen' animation={FadeUp}>
+              <video
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+                src="http://0.0.0.0:8000/young_720.mp4" // Replace with your video URL
+                autoPlay
+                muted
+                loop
+              />
+              <div className="relative z-10 flex flex-col items-center justify-center w-full h-full bg-blue-800 bg-opacity-60">
+                <h1 className="text-white text-5xl font-bold mb-4">Discover Innovations</h1>
+                <p className="text-white text-xl max-w-3xl text-center">
+                  Discover our range of innovative medical technologies designed to enhance patient care and streamline
+                  healthcare processes. Our solutions are crafted with precision to meet the highest standards of quality
+                  and reliability.
+                </p>
+              </div>
+            </Animator>
+          </div>
+        </ScrollPage>
+        
+        {/* Section 3 */}
+        {/* <ScrollPage>
+          <div className="relative w-screen h-screen">
+            <Animator className='w-full h-screen' animation={FadeUp}>
+              <video
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+                src="http://0.0.0.0:8000/hands_720.mp4" // Replace with your video URL
+                autoPlay
+                muted
+                loop
+              />
+              <div className="relative z-10 flex flex-col items-center justify-center w-full h-full bg-green-800 bg-opacity-60">
+                <h1 className="text-white text-5xl font-bold mb-4">Learn More</h1>
+                <p className="text-white text-xl max-w-3xl text-center">
+                  Learn more about our research, development, and the impact of our technologies on the healthcare industry.
+                  We are committed to educating our partners and clients about the benefits and applications of our solutions.
+                </p>
+              </div>
+            </Animator>
+          </div>
+        </ScrollPage>
+        
+        {/* Section 4 */}
+        {/* <ScrollPage>
+          <div className="relative w-screen h-screen">
+            <Animator className='w-full h-screen' animation={ZoomInScrollOut}>
+              <video
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+                src="http://0.0.0.0:8000/courier_720.mp4" // Replace with your video URL
+                autoPlay
+                muted
+                loop
+              />
+              <div className="relative z-10 flex flex-col items-center justify-center w-full h-full bg-yellow-800 bg-opacity-60">
+                <h1 className="text-white text-5xl font-bold mb-4">Get in Touch</h1>
+                <p className="text-white text-xl max-w-3xl text-center">
+                  Have questions or need support? Get in touch with our team to learn more about our products and services.
+                  We are here to help you find the right solutions for your healthcare needs.
+                </p>
+              </div>
+            </Animator>
+          </div>
+        </ScrollPage> */}
+      </ScrollContainer> 
+    </div>
+  );
+};
+
+export default App;

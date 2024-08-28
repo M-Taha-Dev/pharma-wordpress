@@ -1,0 +1,78 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar but keep scrolling functional */
+/* src/index.css */
+/* src/index.css */
+/* src/index.css */
+/* Add this for scroll snapping */
+html, body {
+    margin: 0;
+    padding: 0;
+    @apply font-sans;
+
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+/* Step 1: Scroll-snap container */
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* Step 2: Custom fade-in and fade-out animations */
+.fade-section {
+  position: relative;
+  opacity: 0;
+  animation: fadeInOut 2s forwards;
+}
+
+/* Keyframes for fade animations */
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Optional: Control the speed and timing of the animation */
+.fade-section:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.fade-section:nth-child(2) {
+  animation-delay: 2s; /* Adjust timing as needed */
+}
+
+
+.scroll-section {
+  border: 1px solid red; /* Temporary for debugging */
+}
+
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+  /* In your CSS file */
+
+@media (max-width: 768px) {
+  .no-animation .animator {
+    animation: none !important;
+  }
+}
